@@ -33,7 +33,7 @@ const UserSchema = new Schema({
   timestamps: true
 });
 
-interface IUser extends Document {
+export interface IUser extends Document {
   name: string;
   avatar: string;
   email: string;

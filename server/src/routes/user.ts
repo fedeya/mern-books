@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUsers, createUser } from '../controllers/user.controller';
+import { getUsers, createUser, deleteUser, getUser, updateUser } from '../controllers/user.controller';
 import { check } from 'express-validator';
 
 import multer from '../lib/multer';
@@ -16,8 +16,13 @@ router.route('/')
   ], createUser);
 
 router.route('/:id')
-  .get()
-  .put()
-  .delete();
+  .get(getUser)
+  .put(multer.single('avatar'), [
+    check('name', 'the name is required').not().isEmpty(),
+    check('email', 'enter a valid email').isEmail(),
+    check('sex', 'enter a valid sex').isIn(['male', 'female']),
+    check('password', 'the password at least 6 characters').isLength({ min: 6 })
+  ], updateUser)
+  .delete(deleteUser);
 
 export default router;
