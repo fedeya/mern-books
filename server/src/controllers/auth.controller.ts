@@ -30,7 +30,6 @@ export async function Login(req: Request, res: Response): Promise<Response> {
     }
   }
 
-  console.log(process.env.SECRET);
   const token = jwt.sign(payload, process.env.SECRET as string);
   return res.json(token);
 }
