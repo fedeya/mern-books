@@ -11,10 +11,12 @@ Is needed to install this software for exec the project
 
 ## [Server](/server)
 
-### Routes
-- /api/users **GET - POST**
-- /api/users/:id **GET - PUT - DELETE**
-- /images/ **GET**
+### Routes API
+
+| Name        | Description             | Methods              |
+|-------------|-------------------------|----------------------|
+| `users`     | route to user managment | `GET` `POST`         |
+| `users/:id` | route to user managment | `GET` `PUT` `DELETE` |
 
 ### Deployment
 
