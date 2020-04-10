@@ -1,6 +1,9 @@
 node_modules
 .env
 
-server/images/users/*
-!server/images/users/boy.png
-!server/images/users/girl.png
+server/uploads/*/*/*
+server/uploads/files/*
+!server/uploads/files/files-here.txt
+!server/uploads/images/books/books-img-here.txt
+!server/uploads/images/users/boy.png
+!server/uploads/images/users/girl.png

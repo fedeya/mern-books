@@ -5,11 +5,15 @@ import * as uuid from 'uuid';
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     if(file.fieldname === 'avatar') {
-      cb(null, 'images/users');
+      cb(null, 'uploads/images/users');
+    }
+
+    if(file.fieldname === 'file') {
+      cb(null, 'uploads/files/')
     }
 
     if(file.fieldname === 'front') {
-      cb(null, 'images/books');
+      cb(null, 'uploads/images/books');
     }
   },
   filename(req, file, cb) {
