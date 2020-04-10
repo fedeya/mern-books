@@ -19,6 +19,6 @@ app.use(express.json());
 
 // masters route
 app.use('/api/', routes);
-app.use('/images', express.static(path.join(__dirname, '../images/')));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads/')));
 
 export default app;
