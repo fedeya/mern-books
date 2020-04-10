@@ -13,10 +13,23 @@ Is needed to install this software for exec the project
 
 ### Routes API
 
-| Name        | Description             | Methods              |
-|-------------|-------------------------|----------------------|
-| `users`     | route to user managment | `GET` `POST`         |
-| `users/:id` | route to user managment | `GET` `PUT` `DELETE` |
+| Name        | Description    | Methods              |
+|-------------|----------------|----------------------|
+| `users`     | user managment | `GET` `POST`         |
+| `users/:id` | user managment | `GET` `PUT` `DELETE` |
+
+### Schemas
+
+#### User
+| Name       | Type     | Required | Default     | Unique  |
+|------------|----------|----------|-------------|---------|
+| `name`     | `String` | `true`   |             | `false` |
+| `avatar`   | `String` | `true`   |             | `false` |
+| `email`    | `String` | `true`   |             | `true`  |
+| `password` | `String` | `true`   |             | `false` |
+| `sex`      | `String` | `true`   |             | `false` |
+| `role`     | `String` | `false`  | `USER_ROLE` | `false` |
+
 
 ### Deployment
 
