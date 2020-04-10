@@ -6,6 +6,7 @@ import multer from '../lib/multer';
 
 const router = Router();
 
+// api/users
 router.route('/')
   .get(getUsers)
   .post(multer.single('avatar'), [
