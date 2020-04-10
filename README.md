@@ -20,7 +20,7 @@ Is needed to install this software for exec the project
 
 ### Schemas
 
-#### User
+#### `User`
 | Name       | Type     | Required | Default     | Unique  |
 |------------|----------|----------|-------------|---------|
 | `name`     | `String` | `true`   |             | `false` |
@@ -29,6 +29,15 @@ Is needed to install this software for exec the project
 | `password` | `String` | `true`   |             | `false` |
 | `sex`      | `String` | `true`   |             | `false` |
 | `role`     | `String` | `false`  | `USER_ROLE` | `false` |
+
+#### `Book`
+| Name          | Type       | Required | Ref           |
+|---------------|------------|----------|---------------|
+| `title`       | `String`   | `true`   |               |
+| `description` | `String`   | `true`   |               |
+| `img`         | `String`   | `true`   |               |
+| `author`      | `ObjectId` | `true`   | [user](#user) |
+
 
 
 ### Deployment
