@@ -55,7 +55,7 @@ export async function createUser(req: Request, res: Response): Promise<Response>
     return res.status(400).json({ msg: 'exist account with same email' });
   }
 
-  const avatar = req.file ? req.file.path : sex === 'male' ? 'images/users/boy.png' : 'images/users/girl.png';
+  const avatar = req.file ? req.file.path : sex === 'male' ? 'uploads/images/users/boy.png' : 'uploads/images/users/girl.png';
 
   const salt = await bcrypt.genSalt(10);
   const encrypted = await bcrypt.hash(password, salt);
