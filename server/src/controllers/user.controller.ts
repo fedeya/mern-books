@@ -1,5 +1,8 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
+import { validationResult } from 'express-validator';
+import fs from 'fs-extra';
+
 import User from '../models/user';
 
 // get all users
@@ -11,6 +14,12 @@ export async function getUsers(req: Request, res: Response): Promise<Response> {
 
 // create user
 export async function createUser(req: Request, res: Response): Promise<Response> {
+
+  const errors = validationResult(req);
+  if(!errors.isEmpty()) {
+    await fs.unlink(req.file.path);
+    return res.status(400).json(errors);
+  }
 
   const { name, email, password, sex } = req.body;
 
