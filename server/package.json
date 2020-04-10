@@ -16,20 +16,24 @@
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "fs-extra": "^9.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "validator": "^13.0.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
     "@types/fs-extra": "^8.1.0",
+    "@types/jsonwebtoken": "^8.3.9",
     "@types/mongoose": "^5.7.10",
     "@types/morgan": "^1.9.0",
     "@types/multer": "^1.4.2",
     "@types/uuid": "^7.0.2",
+    "@types/validator": "^13.0.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.3"
   }
