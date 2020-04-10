@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import path from 'path';
 
 import routes from './routes';
 
@@ -14,8 +15,10 @@ app.set('port', process.env.PORT || 4000);
 
 app.use(morgan('dev'));
 app.use(cors());
+app.use(express.json());
 
-// master route
+// masters route
 app.use('/api/', routes);
+app.use('/images', express.static(path.join(__dirname, '../images/')));
 
 export default app;
