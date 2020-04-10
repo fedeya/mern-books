@@ -37,6 +37,8 @@ Is needed to install this software for exec the project
 | `description` | `String`   | `true`   |               |
 | `img`         | `String`   | `true`   |               |
 | `author`      | `ObjectId` | `true`   | [user](#user) |
+| `file`        | `String`   | `true`   |               |
+| `bookAuthor`  | `String`   | `true`   |               |
 
 
 
