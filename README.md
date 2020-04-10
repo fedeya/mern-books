@@ -1,6 +1,6 @@
 # MERN Books
 
-Full Stack Web Application using MERN Stack
+MERN Books is a application where users upload and download books
 
 ## Requirements
 Is needed to install this software for exec the project
