@@ -21,10 +21,14 @@ const UserSchema = new Schema({
     required: true,
     trim: true
   },
+  sex: {
+    type: String,
+    required: true
+  },
   role: {
     type: String,
     default: 'USER_ROLE' 
-  }
+  },
 }, {
   timestamps: true
 });
@@ -34,6 +38,7 @@ interface IUser extends Document {
   avatar: string;
   email: string;
   password: string;
+  sex: 'male' | 'female';
   role: 'USER_ROLE' | 'ADMIN_ROLE';
 };
 
