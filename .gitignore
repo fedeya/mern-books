@@ -1,2 +1,6 @@
-node_modules/
+node_modules
 .env
+
+server/images/users/*
+!server/images/users/boy.png
+!server/images/users/girl.png
