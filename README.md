@@ -11,12 +11,19 @@ Is needed to install this software for exec the project
 
 ## [Server](/server)
 
-### Routes API
+### API Endpoints
 
-| Name        | Description    | Methods              |
-|-------------|----------------|----------------------|
-| `users`     | user managment | `GET` `POST`         |
-| `users/:id` | user managment | `GET` `PUT` `DELETE` |
+All api endpoints init in /api/ example /api/users
+
+At all endpoints where method is not `POST` `Authorization` is required in the headers, value is the token obtained at the `auth` or `user` `POST` endpoint
+
+| Name        | Description      | Methods              |
+|-------------|------------------|----------------------|
+| `users`     | user management  | `GET` `POST`         |
+| `users/:id` | user management  | `GET` `PUT` `DELETE` |
+| `books`     | books management | `GET` `POST`         |
+| `books/:id` | books management | `GET` `PUT` `DELETE` |
+| `auth`      | login            | `POST`               |
 
 ### Schemas
 
