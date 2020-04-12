@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext, useRef } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import Background from '../../assets/images/books-pile.jpg';
 
+import AuthContext from '../../context/auth/AuthContext';
+
 function Registry() {
+
+  const { registryAuth } = useContext(AuthContext);
+
+  const fileInput = useRef();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -11,10 +17,29 @@ function Registry() {
   const [avatar, setAvatar] = useState('');
   const [sex, setSex] = useState('');
 
+  const history = useHistory();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const form = new FormData();
+    form.append('avatar', fileInput.current.files[0]);
+    form.append('name', name);
+    form.append('email', email);
+    form.append('password', password);
+    form.append('sex', sex);
+
+    registryAuth(form);
+    history.push('/books');
+  }
+
   return (
     <div className="w-screen h-screen bg-cover bg-gray-800" style={{ backgroundImage: `url(${Background})` }} >
       <div className="container mx-auto h-screen flex justify-center items-center bg-transparent">
-        <form className="bg-white flex flex-col h-auto rounded w-full lg:w-1/3 px-6 pt-6 pb-8">
+        <form 
+          className="bg-white flex flex-col h-auto rounded w-full lg:w-1/3 px-6 pt-6 pb-8"
+          onSubmit={handleSubmit}
+        >
           <h1 className="text-3xl text-center mb-3">Sign Up</h1>
           <input
             type="text"
@@ -31,10 +56,11 @@ function Registry() {
             onChange={e => setEmail(e.target.value)}
           />
           <label className="bg-gray-200 rounded px-3 py-2 mb-3 cursor-pointer text-gray-600">
-            <span>{avatar === '' ? 'Select Image' : avatar.split('\\')[avatar.split('\\').length - 1]}</span>
+            <span>{avatar !== '' ? avatar.split('\\')[avatar.split('\\').length - 1] : 'Select Image'}</span>
             <input
               type="file"
               className="hidden"
+              ref={fileInput}
               value={avatar}
               onChange={e => setAvatar(e.target.value)}
             />
