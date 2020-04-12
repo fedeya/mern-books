@@ -12,8 +12,8 @@ function Registry() {
   const [sex, setSex] = useState('');
 
   return (
-    <div className="w-screen h-screen bg-cover" style={{ backgroundImage: `url(${Background})` }} >
-      <div className="container mx-auto h-screen z-10 flex justify-center items-center bg-transparent">
+    <div className="w-screen h-screen bg-cover bg-gray-800" style={{ backgroundImage: `url(${Background})` }} >
+      <div className="container mx-auto h-screen flex justify-center items-center bg-transparent">
         <form className="bg-white flex flex-col h-auto rounded w-full lg:w-1/3 px-6 pt-6 pb-8">
           <h1 className="text-3xl text-center mb-3">Sign Up</h1>
           <input
