@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
 
@@ -8,7 +9,7 @@ function Login() {
   return (
     <div className="bg-gray-800 w-screen h-screen">
       <div className="container h-screen flex justify-center items-center bg-gray-800">
-        <div className="bg-white flex flex-col h-auto rounded md:w-1/3 px-6 pt-6 pb-8">
+        <form className="bg-white flex flex-col h-auto rounded md:w-1/3 px-6 pt-6 pb-8">
           <h1 className="text-3xl text-center mb-3">Login</h1>
           <input
             type="text"
@@ -29,7 +30,10 @@ function Login() {
           >
             Login
           </button>
-        </div>
+          <Link to="/register" className="text-gray-600 text-center mt-2" >
+            Don't have an account? Sign Up
+          </Link>
+        </form>
       </div>
     </div>
   );

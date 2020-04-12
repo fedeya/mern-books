@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import Background from '../../assets/images/books-pile.jpg';
 
 function Registry() {
@@ -29,7 +31,7 @@ function Registry() {
             onChange={e => setEmail(e.target.value)}
           />
           <label className="bg-gray-200 rounded px-3 py-2 mb-3 cursor-pointer text-gray-600">
-            <span>{ avatar === '' ? 'Select Image' : avatar.split('\\')[avatar.split('\\').length - 1] }</span>
+            <span>{avatar === '' ? 'Select Image' : avatar.split('\\')[avatar.split('\\').length - 1]}</span>
             <input
               type="file"
               className="hidden"
@@ -58,6 +60,9 @@ function Registry() {
           >
             Sign Up
           </button>
+          <Link to="/" className="text-gray-600 text-center mt-2">
+            Have an account? Login
+          </Link>
         </form>
       </div>
     </div>
