@@ -3,11 +3,13 @@ import { validationResult } from 'express-validator';
 import fs from 'fs-extra';
 
 import Book, { IBook } from '../models/book';
+import User from '../models/user';
 
 // get all books
 export async function getBooks(req: Request, res: Response): Promise<Response> {
   
   const books = await Book.find();
+  await User.populate(books, { path: 'author', select: ['name', '_id', 'avatar'] });
 
   return res.json(books);
 }
@@ -23,6 +25,8 @@ export async function getBook(req: Request, res: Response): Promise<Response> {
   if(!book) {
     return res.status(404).json({ msg: 'book not exist' });
   }
+
+  await User.populate(book, { path: 'author', select: ['name', '_id', 'avatar']});
 
   return res.json(book);
 }
