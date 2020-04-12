@@ -124,7 +124,7 @@ export async function deleteUser(req: Request, res: Response): Promise<Response>
   }
 
   let user = await User.findById(req.user.id) as IUser;
-  if(req.user.id !== user._id ) {
+  if(req.user.id !== user._id.toString() ) {
     return res.status(403).json({ msg: 'not authorized' });
   }
 
@@ -132,7 +132,7 @@ export async function deleteUser(req: Request, res: Response): Promise<Response>
   if(!user) {
     return res.status(404).json({ msg: 'user not exist' });
   }
-  await fs.unlink(user.avatar);
+  if(!user.avatar.match(/uploads\/images\/users\/(boy\.png|girl\.png)/)) await fs.unlink(user.avatar);
 
   return res.json(user);
 }
