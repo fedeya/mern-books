@@ -78,7 +78,7 @@ export async function createUser(req: Request, res: Response): Promise<Response>
     }
 
     const token = jwt.sign(payload, process.env.SECRET as string, {
-      expiresIn: 86400
+      expiresIn: 43200
     });
 
     return res.json(token);
