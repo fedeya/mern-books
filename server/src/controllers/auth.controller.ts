@@ -35,3 +35,13 @@ export async function Login(req: Request, res: Response): Promise<Response> {
   });
   return res.json(token);
 }
+
+export async function getUser(req: Request, res: Response): Promise<Response> {
+
+  const user = await User.findById(req.user.id).select('-password');
+  if(!user) {
+    return res.status(404).json({ msg: 'user not exist' });
+  }
+
+  return res.json(user);
+}
