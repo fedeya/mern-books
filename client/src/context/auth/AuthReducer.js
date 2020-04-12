@@ -1,13 +1,15 @@
-import { GET_USER, LOGIN_AUTH, LOGIN_ERROR } from '../../types';
+import { GET_USER, LOGIN_AUTH, LOGIN_ERROR, REGISTRY_AUTH, REGISTRY_ERROR } from '../../types';
 
 export default (state, action) => {
   switch(action.type) {
+    case REGISTRY_AUTH:
     case LOGIN_AUTH:
       localStorage.setItem('token', action.payload);
       return {
         ...state,
         token: action.payload,
-        auth: true
+        auth: true,
+        loading: true
       }
     case GET_USER:
       return {
@@ -16,6 +18,7 @@ export default (state, action) => {
         auth: true,
         loading: false
       }
+    case REGISTRY_ERROR:
     case LOGIN_ERROR:
       localStorage.removeItem('token');
       return {
