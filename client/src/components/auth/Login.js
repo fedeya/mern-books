@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import Background from '../../assets/images/books-pile.jpg';
 
+import AuthContext from '../../context/auth/AuthContext';
+
 function Login() {
+
+  const { loginAuth } = useContext(AuthContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const history = useHistory();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    
+    loginAuth({ email, password });
+    history.push('/books');
+  }
+
   return (
     <div className="bg-gray-800 w-screen h-screen bg-cover" style={{ backgroundImage: `url(${Background})` }} >
       <div className="container mx-auto h-screen flex justify-center items-center bg-transparent">
-        <form className="bg-white flex flex-col h-auto rounded w-full lg:w-1/3 px-6 pt-6 pb-8">
+        <form 
+          className="bg-white flex flex-col h-auto rounded w-full md:w-3/4 lg:w-1/3 px-6 pt-6 pb-8"
+          onSubmit={handleSubmit}
+        >
           <h1 className="text-3xl text-center mb-3">Login</h1>
           <input
             type="text"
