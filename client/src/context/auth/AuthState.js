@@ -34,7 +34,7 @@ function AuthState({ children }) {
     } catch(err) {
       dispatch({
         type: LOGIN_ERROR,
-        paylaod: err.response.data.errors ? err.response.data.errors[0].msg : err.response.data.msg
+        payload: err.response.data.errors ? err.response.data.errors[0].msg : err.response.data.msg
       });
     }
   }
