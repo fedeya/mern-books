@@ -1,8 +1,11 @@
 import React from 'react';
+import Header from '../layout/Header';
 
 function Profile() {
   return (
-    <h1>Profile Works!</h1>
+    <div className="h-screen w-screen bg-gray-800">
+      <Header />
+    </div>
   );
 }
 
