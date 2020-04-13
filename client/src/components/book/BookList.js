@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+
+import BookContext from '../../context/book/BookContext';
 
 import Book from './Book';
 
 function BookList() {
   
-  const books = [
-    { _id: 1, title: 'Book 1', author: { name: 'Federico' } },
-    { _id: 2, title: 'Book 2', author: { name: 'Agustin' } },
-    { _id: 3, title: 'Book 3', author: { name: 'Jeremiaz' } }
-  ]
+  const { books, getBooks } = useContext(BookContext);
+
+  useEffect(() => {
+    getBooks();
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <div className="container mt-3 flex flex-wrap mx-auto">
       {
         books.map(book => (
-          <Book book={book} />
+          <Book book={book} key={book._id} />
         ))
       }
     </div>
