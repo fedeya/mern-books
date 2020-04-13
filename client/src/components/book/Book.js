@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import AuthContext from '../../context/auth/AuthContext';
 import BookContext from '../../context/book/BookContext';
@@ -6,8 +7,15 @@ import BookContext from '../../context/book/BookContext';
 function Book({ book }) {
 
   const { user } = useContext(AuthContext);
-  const { deleteBook } = useContext(BookContext);
+  const { deleteBook, activeBook } = useContext(BookContext);
   const [open, setOpen] = useState(false);
+
+  const history = useHistory();
+
+  const editBook = () => {
+    activeBook(book);
+    history.push('/edit');
+  }
 
   return (
     <Fragment>
@@ -51,6 +59,7 @@ function Book({ book }) {
                   </button>
                   <button 
                     className="bg-yellow-500 px-4 py-2 rounded shadow text-white font-bold mb-2"
+                    onClick={editBook}
                   >
                     Edit
                   </button>
