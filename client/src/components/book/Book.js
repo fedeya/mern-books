@@ -12,7 +12,7 @@ function Book({ book }) {
   return (
     <Fragment>
       <div
-        className="bg-white w-48 cursor-pointer items-center justify-between flex flex-col px-3 py-2 shadow mr-3 flex-shrink-0"
+        className="bg-gray-700 w-48 cursor-pointer items-center justify-between flex flex-col px-3 py-2 shadow mr-3 flex-shrink-0"
         onClick={() => setOpen(!open)}
       >
         <img
@@ -21,7 +21,7 @@ function Book({ book }) {
           className="rounded"
         />
         <div className="flex flex-col">
-          <p className="text-2xl">{book.title}</p>
+          <p className="text-2xl text-white">{book.title}</p>
           <p className="text-center text-gray-500">{book.bookAuthor}</p>
         </div>
         <div className="flex items-end h-full">
@@ -35,7 +35,7 @@ function Book({ book }) {
       </div>
       {
         open && (
-          <div className="bg-white mt-2 h-auto mr-3 flex-col justify-center flex w-auto shadow px-2 py-2">
+          <div className="bg-gray-800 mt-2 h-auto mr-3 flex-col justify-center flex w-auto px-2 py-2">
             <a 
               href={`http://localhost:4000/${book.file}`}
               target="__blank"
