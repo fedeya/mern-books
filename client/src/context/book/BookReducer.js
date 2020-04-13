@@ -1,7 +1,8 @@
-import { GET_BOOKS, DELETE_BOOK } from '../../types';
+import { GET_BOOKS, DELETE_BOOK, ADD_BOOK } from '../../types';
 
 export default (state, action) => {
   switch(action.type) {
+    case ADD_BOOK:
     case DELETE_BOOK:
       return {
         ...state,
