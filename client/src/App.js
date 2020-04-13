@@ -6,6 +6,7 @@ import Login from './components/auth/Login';
 import Registry from './components/auth/Registry';
 import Books from './components/book/Books';
 import Profile from './components/user/Profile';
+import BookForm from './components/book/BookForm';
 
 // context
 import AuthState from './context/auth/AuthState';
@@ -29,6 +30,7 @@ function App() {
             <PublicRedirect component={Login} path="/" exact />
             <PublicRedirect component={Registry} path="/register" />
             <PrivateRoute component={Books} path="/books" />
+            <PrivateRoute component={BookForm} path="/add" />
             <PrivateRoute component={Profile} path="/profile" />
           </Switch>
         </Router>
