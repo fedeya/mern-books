@@ -15,7 +15,7 @@ const Header = () => (
           </NavLink>
         </li>
         <li className="mr-2">
-          <NavLink to="/add" activeclassName="text-white">
+          <NavLink to="/add" activeClassName="text-white">
             Create
           </NavLink>
         </li>
