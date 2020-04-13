@@ -14,6 +14,11 @@ const Header = () => (
             Books
           </NavLink>
         </li>
+        <li className="mr-2">
+          <NavLink to="/add" activeclassName="text-white">
+            Create
+          </NavLink>
+        </li>
         <li>
           <NavLink  to="/profile" activeClassName="text-white">
             Profile
