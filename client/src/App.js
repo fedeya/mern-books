@@ -31,6 +31,7 @@ function App() {
             <PublicRedirect component={Registry} path="/register" />
             <PrivateRoute component={Books} path="/books" />
             <PrivateRoute component={BookForm} path="/add" />
+            <PrivateRoute component={BookForm} path="/edit" />
             <PrivateRoute component={Profile} path="/profile" />
           </Switch>
         </Router>
