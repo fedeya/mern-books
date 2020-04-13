@@ -3,7 +3,7 @@ import React, { useReducer } from 'react';
 import BookContext from './BookContext';
 import BookReducer from './BookReducer';
 
-import { GET_BOOKS, DELETE_BOOK, ADD_BOOK } from '../../types';
+import { GET_BOOKS, DELETE_BOOK, ADD_BOOK, UPDATE_BOOK, ACTIVE_BOOK } from '../../types';
 
 import axiosClient from '../../config/axios';
 
@@ -42,6 +42,13 @@ function BookState({ children }) {
     }
   }
 
+  const activeBook = async book => {
+    dispatch({
+      type: ACTIVE_BOOK,
+      payload: book
+    });
+  }
+
   const createBook = async book => {
     try {
       await axiosClient.post('/books', book);
@@ -54,13 +61,28 @@ function BookState({ children }) {
     }
   }
 
+  const editBook = async (book, id) => {
+    try {
+      await axiosClient.put(`/books/${id}`, book);
+      dispatch({
+        type: UPDATE_BOOK
+      });
+
+      getBooks();
+    } catch(err) {
+      console.log(err.response);
+    }
+  }
+
   return (
     <BookContext.Provider
       value={{
         ...state,
         getBooks,
         deleteBook,
-        createBook
+        createBook,
+        activeBook,
+        editBook
       }}
     >
       {children}
