@@ -3,7 +3,7 @@ import React, { useReducer } from 'react';
 import BookContext from './BookContext';
 import BookReducer from './BookReducer';
 
-import { GET_BOOKS } from '../../types';
+import { GET_BOOKS, DELETE_BOOK } from '../../types';
 
 import axiosClient from '../../config/axios';
 
@@ -11,7 +11,8 @@ function BookState({ children }) {
   const initialState = {
     books: [],
     book: null,
-    error: null
+    error: null,
+    loading: true
   };
 
   const [state, dispatch] = useReducer(BookReducer, initialState);
@@ -32,12 +33,10 @@ function BookState({ children }) {
   const deleteBook = async id => {
     try {
       await axiosClient.delete(`/books/${id}`);
-      const res = await axiosClient.get('/books');
-      
       dispatch({
-        type: GET_BOOKS,
-        payload: res.data
+        type: DELETE_BOOK
       });
+      getBooks();
     } catch(err) {
       console.log(err.response);
     }
