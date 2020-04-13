@@ -10,3 +10,4 @@ export const ADD_BOOK = 'ADD_BOOK';
 export const DELETE_BOOK = 'DELETE_BOOK';
 export const UPDATE_BOOK = 'UPDATE_BOOK';
 export const ERROR_BOOK = 'ERROR_BOOK';
+export const ACTIVE_BOOK = 'ACTIVE_BOOK';
